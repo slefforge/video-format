@@ -10,7 +10,12 @@ make
 ## Usage
 
 ```bash
-scripts/encode.sh v1 media/candles.y4m out/v1/candles.es
-scripts/decode.sh v1 out/v1/candles.es out/v1/candles.y4m
-scripts/roundtrip.sh v1 media/candles.y4m out/v1/candles-rt.y4m
+# Encode v1
+bin/v1/myenc -i media/candles.y4m -o out/v1/candles.es
+
+# Decode v1
+bin/v1/mydec -i out/v1/candles.es -o out/v1/candles.y4m
+
+# Roundtrip without temp files (sanity test)
+bin/v1/myenc -i media/candles.y4m | bin/v1/mydec > /dev/null
 ```
